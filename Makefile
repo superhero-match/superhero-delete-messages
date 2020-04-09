@@ -9,14 +9,11 @@ build:
 	CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags '-extldflags "-static"' -o bin/main cmd/api/main.go
 	chmod +x bin/main
 
-deps:
-	dep ensure -v
-
 dkb:
 	docker build -t superhero-delete-messages .
 
 dkr:
-	docker run --rm -p "5200:5200" superhero-delete-messages
+	docker run --rm -p "5200:5200" -p "8160:8160" superhero-delete-messages
 
 launch: dkb dkr
 

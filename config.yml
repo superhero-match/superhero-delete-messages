@@ -9,3 +9,8 @@ producer:
   topic: 'delete.chat.message'
   batch_size: 1
   batch_timeout: 10
+
+health:
+  port: ':8160'
+  shutdown_endpoint: '/api/v1/superhero_delete_messages_health/shutdown'
+  content_type: 'application/json'
